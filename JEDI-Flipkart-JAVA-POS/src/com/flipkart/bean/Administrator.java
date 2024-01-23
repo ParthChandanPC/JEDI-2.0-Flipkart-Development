@@ -1,4 +1,4 @@
 package com.flipkart.bean;
 
-public class Adminstrator {
+public class Administrator {
 }
