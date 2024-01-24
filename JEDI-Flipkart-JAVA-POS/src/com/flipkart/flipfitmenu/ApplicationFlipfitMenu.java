@@ -1,7 +1,8 @@
 package com.flipkart.flipfitmenu;
 
 import java.util.*;
-
+import com.flipkart.constants.ColorConstants;
+import com.flipkart.constants.Format;
 import com.flipkart.bean.User;
 import com.flipkart.flipfitservice.UserFlipfitService;
 
@@ -10,8 +11,8 @@ public class ApplicationFlipfitMenu {
     public static void login() throws Exception {
         Scanner in = new Scanner(System.in);
         System.out.println("__________________________________________________________________________________\n");
-        System.out.println("Enter LogIn Details\n");
-        System.out.print("Enter Email: ");
+        System.out.println(ColorConstants.ORANGE+"Enter LogIn Details\n \033[0m");
+        System.out.print(ColorConstants.CYAN+"Enter Email: ");
         String userEmail = in.next();
         System.out.print("Enter Password: ");
         String password = in.next();
@@ -46,14 +47,14 @@ public class ApplicationFlipfitMenu {
         System.out.println("Welcome to the FlipFit Application!");
 
         while (flag) {
-            System.out.println("\nChoose your action:");
-            System.out.println("1. Login");
+            System.out.println(Format.BOLD+"\nChoose your action:");
+            System.out.println(ColorConstants.BLUE+"1. Login");
             System.out.println("2. Customer Registration");
             System.out.println("3. Gym Owner Registration");
             System.out.println("4: Update Password");
             System.out.println("5. Exit");
 
-            System.out.print("\nEnter Your Choice: ");
+            System.out.print(ColorConstants.PURPLE+"\nEnter Your Choice:\033[0m");
 
             Scanner in = new Scanner(System.in);
 
@@ -77,7 +78,7 @@ public class ApplicationFlipfitMenu {
                     customer1.updatePassword();
                     break;
                 case 5:
-                    System.out.println("Exiting...");
+                    System.out.println(ColorConstants.CYAN+"Exiting... \033[0m");
                     System.out.println("Exited Successfully");
                     flag=false;
                     System.exit(0);
