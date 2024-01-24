@@ -79,7 +79,8 @@ public class ApplicationFlipfitMenu {
                 case 5:
                     System.out.println("Exiting...");
                     System.out.println("Exited Successfully");
-
+                    recur=false;
+                    System.exit(0);
 
                     break;
                 default:
