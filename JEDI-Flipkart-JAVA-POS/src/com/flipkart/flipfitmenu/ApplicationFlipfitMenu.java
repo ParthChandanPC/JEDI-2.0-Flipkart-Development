@@ -12,7 +12,7 @@ public class ApplicationFlipfitMenu {
         Scanner in = new Scanner(System.in);
         System.out.println("__________________________________________________________________________________\n");
         System.out.println(ColorConstants.ORANGE+"Enter LogIn Details\n \033[0m");
-        System.out.print(ColorConstants.CYAN+"Enter Email: ");
+        System.out.print(ColorConstants.CYAN+"Enter Email: \033[0m");
         String userEmail = in.next();
         System.out.print("Enter Password: ");
         String password = in.next();
