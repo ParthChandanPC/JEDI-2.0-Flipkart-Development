@@ -50,7 +50,9 @@ public class ApplicationFlipfitMenu {
             System.out.println("1. Login");
             System.out.println("2. Customer Registration");
             System.out.println("3. Gym Owner Registration");
-            System.out.println("4. Exit");
+            System.out.println("4:update password");
+            System.out.println("5. Exit");
+
             System.out.print("\nEnter Your Choice: ");
 
             Scanner in = new Scanner(System.in);
@@ -70,12 +72,15 @@ public class ApplicationFlipfitMenu {
                     owner.gymOwnerRegistration(in);
                     login();
                     break;
-                case 4:
+                case 4;
+                    CustomerFlipfitMenu customer1= new CustomerFlipfitMenu();
+                    customer1.updatePassword();
+                    break;
+                case 5:
                     System.out.println("Exiting...");
                     System.out.println("Exited Successfully");
 
-                    recur = false;
-                    System.exit(0);
+
                     break;
                 default:
                     System.out.println("Wrong choice");

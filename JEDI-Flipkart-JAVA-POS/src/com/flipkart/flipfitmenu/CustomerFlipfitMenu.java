@@ -52,6 +52,12 @@ public class CustomerFlipfitMenu {
         customer.setAddress(sc.next());
         System.out.println("Successfully edited your profile");
     }
+    public void updatePassword(){
+        System.out.println("-------Enter old password");
+        sc.next();
+        System.out.println("-------Enter new password");
+        sc.next();
+    }
 
     public void getGyms() {
         System.out.print("Enter your city: ");
