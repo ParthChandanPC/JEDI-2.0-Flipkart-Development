@@ -1,11 +1,11 @@
-package com.flipkart.client;
+package com.flipkart.flipfitmenu;
 
 import java.util.*;
 
 
 
 
-public class ApplicationClient {
+public class ApplicationFlipfitMenu {
 
     public static void login() throws Exception {
         Scanner in = new Scanner(System.in);
@@ -61,12 +61,12 @@ public class ApplicationClient {
                     login();
                     break;
                 case 2:
-                    CustomerClient customer = new CustomerClient();
+                    CustomerFlipfitMenu customer = new CustomerFlipfitMenu();
                     customer.registerCustomer();
                     login();
                     break;
                 case 3:
-                 CustomerClient customer1 = new CustomerClient();
+                 CustomerFlipfitMenu customer1 = new CustomerFlipfitMenu();
                     customer1.updatePassword();
                    login();
                    break;

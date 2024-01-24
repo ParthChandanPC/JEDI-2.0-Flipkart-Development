@@ -1,7 +1,7 @@
-package com.flipkart.client;
+package com.flipkart.flipfitmenu;
 import java.util.Scanner;
 
-public class GymOwnerClient {
+public class GymOwnerFlipfitMenu {
 
     public void gymOwnerMenu(Scanner in, String email) {
 

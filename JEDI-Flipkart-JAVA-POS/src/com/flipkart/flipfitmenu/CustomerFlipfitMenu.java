@@ -1,10 +1,7 @@
-package com.flipkart.client;
+package com.flipkart.flipfitmenu;
 import java.util.*;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
-public class CustomerClient {
+public class CustomerFlipfitMenu {
     Scanner sc = new Scanner(System.in);
     public void registerCustomer() {
 
