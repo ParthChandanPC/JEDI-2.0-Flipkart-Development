@@ -50,7 +50,7 @@ public class ApplicationFlipfitMenu {
             System.out.println("1. Login");
             System.out.println("2. Customer Registration");
             System.out.println("3. Gym Owner Registration");
-            System.out.println("4:update password");
+            System.out.println("4: Update Password");
             System.out.println("5. Exit");
 
             System.out.print("\nEnter Your Choice: ");
@@ -72,7 +72,7 @@ public class ApplicationFlipfitMenu {
                     owner.gymOwnerRegistration(in);
                     login();
                     break;
-                case 4;
+                case 4:
                     CustomerFlipfitMenu customer1= new CustomerFlipfitMenu();
                     customer1.updatePassword();
                     break;

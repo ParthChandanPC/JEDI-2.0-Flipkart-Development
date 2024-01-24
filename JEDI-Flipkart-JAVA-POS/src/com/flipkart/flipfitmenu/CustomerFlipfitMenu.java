@@ -53,9 +53,9 @@ public class CustomerFlipfitMenu {
         System.out.println("Successfully edited your profile");
     }
     public void updatePassword(){
-        System.out.println("-------Enter old password");
+        System.out.println("-------Enter Old Password");
         sc.next();
-        System.out.println("-------Enter new password");
+        System.out.println("-------Enter New Password");
         sc.next();
     }
 
