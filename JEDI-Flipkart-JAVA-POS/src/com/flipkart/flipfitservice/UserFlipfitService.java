@@ -13,8 +13,8 @@ import com.flipkart.bean.User;
  */
 public class UserFlipfitService implements UserFlipfitServiceInterface{
 	
-	GymOwnerDao gymOwnerDao = new GymOwnerDao();
-	UserDao userDao = new UserDao();
+	GymOwnerDaoImpl gymOwnerDao = new GymOwnerDaoImpl();
+	UserDaoImpl userDao = new UserDaoImpl();
 	/**
 	Registers a customer in the system.
 	@param customer The Customer object representing the customer data

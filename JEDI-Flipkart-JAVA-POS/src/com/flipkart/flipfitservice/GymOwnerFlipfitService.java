@@ -15,7 +15,7 @@ import java.util.*;
  * 
  */
 public class GymOwnerFlipfitService implements GymOwnerFlipfitServiceInterface {
-	GymOwnerDao gymOwnerDAO = new GymOwnerDao();
+	GymOwnerDaoImpl gymOwnerDAO = new GymOwnerDaoImpl();
 
 	/**
 	 * Obtains gym owner's profile details 

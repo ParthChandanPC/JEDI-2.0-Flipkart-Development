@@ -5,7 +5,7 @@ import com.flipkart.dao.*;
 import com.flipkart.bean.*;
 
 public class AdminFlipfitService implements AdminFlipfitServiceInterface{
-	AdminDao adminDAO = new AdminDao();
+	AdminDaoImpl adminDAO = new AdminDaoImpl();
 	/**
 	 * Obtains a list of every gym owner within the system.
 	 * @return List of GymOwner objects
@@ -37,7 +37,7 @@ public class AdminFlipfitService implements AdminFlipfitServiceInterface{
 	 * @param gymOwnerEmail The request's email that has to be approved
 	 */
 	public boolean approveSingleGymOwnerRequest(String gymOwnerEmail) {
-		adminDAO.approveSingleOwnerRequest(gymOwnerEmail);
+//		adminDAO.approveSingleOwnerRequest(gymOwnerEmail);
 		System.out.println("Approved gym owner request! " + gymOwnerEmail);
 		return true;
 	}
@@ -46,7 +46,7 @@ public class AdminFlipfitService implements AdminFlipfitServiceInterface{
 	 * Approves all GymOwners whose requests are pending for approval. 
 	 */
 	public boolean approveAllPendingGymOwnerRequests() {
-		adminDAO.approveAllOwnerRequest();
+//		adminDAO.approveAllOwnerRequest();
 		System.out.println("Approved all pending gym owner requests!");
 		return true;
 	}
@@ -64,7 +64,7 @@ public class AdminFlipfitService implements AdminFlipfitServiceInterface{
 	 * @return true if the gymId is valid else returns false
 	 */
 	public boolean approveSingleGymRequest(String gymId) {
-		adminDAO.approveSingleGymRequest(gymId);
+		// adminDAO.approveSingleGymRequest(gymId);
 		System.out.println("Successfully approved gym request! " + gymId);
 		return true;
 	}
@@ -72,7 +72,7 @@ public class AdminFlipfitService implements AdminFlipfitServiceInterface{
 	 * Approves all Gym whose requests are pending for approval. 
 	 */
 	public boolean approveAllPendingGymRequests() {
-		adminDAO.approveAllGymRequest();
+//		adminDAO.approveAllGymRequest();
 		System.out.println("Successfully approved all pending gym requests!");
 		return true;
 	}

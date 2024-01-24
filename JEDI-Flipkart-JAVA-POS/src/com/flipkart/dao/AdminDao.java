@@ -15,10 +15,4 @@ public interface AdminDao {
 
     public void approveGymRequest(String gymId);
 
-
-<<<<<<< Updated upstream
-public class AdminDao {
-	
-=======
->>>>>>> Stashed changes
 }
