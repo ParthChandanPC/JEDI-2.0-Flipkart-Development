@@ -42,10 +42,10 @@ public class ApplicationFlipfitMenu {
     }
 
     public static void applicationMenu() throws Exception {
-        boolean recur = true;
+        boolean flag= true;
         System.out.println("Welcome to the FlipFit Application!");
 
-        while (recur) {
+        while (flag) {
             System.out.println("\nChoose your action:");
             System.out.println("1. Login");
             System.out.println("2. Customer Registration");
@@ -79,7 +79,7 @@ public class ApplicationFlipfitMenu {
                 case 5:
                     System.out.println("Exiting...");
                     System.out.println("Exited Successfully");
-                    recur=false;
+                    flag=false;
                     System.exit(0);
 
                     break;
