@@ -62,8 +62,11 @@ public class CustomerFlipfitMenu {
     }
 
     public void getGyms() {
-        System.out.print("Enter your city: ");
-        sc.next();
+        System.out.println("Choose your city: ");
+        System.out.println("1. Bellandur");
+        System.out.println("2. Whitefield");
+        System.out.println("3. Electronic City");
+        sc.nextInt();
     }
 
     public void cancelBooking(String email) {
