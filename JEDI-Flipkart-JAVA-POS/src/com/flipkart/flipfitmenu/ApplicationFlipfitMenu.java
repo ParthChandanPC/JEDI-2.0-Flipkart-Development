@@ -14,10 +14,10 @@ public class ApplicationFlipfitMenu {
         System.out.println(ColorConstants.ORANGE+"Enter LogIn Details\n \033[0m");
         System.out.print(ColorConstants.CYAN+"Enter Email: \033[0m");
         String userEmail = in.next();
-        System.out.print("Enter Password: ");
+        System.out.print(ColorConstants.CYAN+"Enter Password: "+ColorConstants.RESET);
         String password = in.next();
-        System.out.println("Enter Role ID: ");
-        System.out.println("1 --> Gym Customer\n2-->Gym Owner\n3 --> Admin");
+        System.out.println(ColorConstants.CYAN+"Enter Role ID: ");
+        System.out.println("1 --> Gym Customer\n2-->Gym Owner\n3 --> Admin"+ColorConstants.RESET);
         String roleId = in.next();
         User user = new User(userEmail, password, roleId);
         UserFlipfitService userFlipFitService = new UserFlipfitService();
@@ -45,7 +45,8 @@ public class ApplicationFlipfitMenu {
 
     public static void applicationMenu() throws Exception {
         boolean flag= true;
-        System.out.println("Welcome to the FlipFit Application!");
+        System.out.println("_________________________________________");
+        System.out.println(Format.BOLD+ColorConstants.ORANGE+"\nWelcome to the FlipFit Application!"+ColorConstants.RESET);
 
         while (flag) {
             System.out.println(Format.BOLD+"\nChoose your action:");
