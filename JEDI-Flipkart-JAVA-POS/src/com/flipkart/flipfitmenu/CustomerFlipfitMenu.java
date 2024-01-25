@@ -4,15 +4,19 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import com.flipkart.bean.Booking
 import com.flipkart.bean.Customer;
 import com.flipkart.bean.Gym;
 import com.flipkart.bean.Slot;
+
+import com.flipkart.flipfitservice.CustomerFlipfitService;
+import com.flipkart.flipfitservice.UserFlipfitService;
 
 
 public class CustomerFlipfitMenu {
 
     Customer customer = new Customer();
-
+    CustomerFlipfitService customerFlipfitService = new CustomerFlipfitService();
     Scanner sc = new Scanner(System.in);
 
     public void registerCustomer() {
@@ -29,14 +33,46 @@ public class CustomerFlipfitMenu {
         System.out.print("Enter Address: ");
         customer.setAddress(sc.next());
 
+
+        UserFlipfitService userFlipfitService = new UserFlipfitService();
+        userFlipfitService.registerCustomer(customer);
+        
         System.out.println("Customer registered successfully!");
 
     }
 
     public void viewGyms(String email) throws ParseException {
-        getGyms();
-        System.out.print("Enter gym ID: ");
-        String gymId = sc.next();
+        if (getGyms() == 0)
+			return;
+		System.out.print("Enter gym ID: ");
+		String gymId = sc.next();
+		System.out.print("\nEnter Date (yyyy-mm-dd): ");
+		String date = sc.next();
+
+        List<Slot> slots = customerBusiness.getSlotInGym(gymId);
+		
+		System.out.printf("%15s%15s%15s%15s", "Slot Id", "Start Time", "End Time", "Availability");
+		System.out.println();
+		slots.forEach(slot -> {
+			System.out.printf("%15s%15s%15s%15s", slot.getSlotId(), slot.getStartTime(), slot.getEndTime(), customerBusiness.isSlotBooked(slot.getSlotId(), date)? "WaitingList": "Available");
+		    System.out.println();
+		});
+		System.out.println("\n__________________________________________________________________________________\n");
+		System.out.print("Enter the slot ID which you want to book: ");
+		String slotId = sc.next();
+		int bookingResponse = customerBusiness.bookSlot(gymId ,slotId , email, date);
+		switch (bookingResponse) {
+		case 0:
+			System.out.println(ColorConstants.RED +"\nYou have already booked this time. \nCancelling the previous one and booking this slot"+ColorConstants.RESET);
+			break;
+		case 1:
+			System.out.println(ColorConstants.GREEN +"\nSlot is already booked, added to the waiting list"+ColorConstants.RESET);
+			break;
+		case 2:
+			System.out.println(ColorConstants.GREEN +"\nSuccessfully booked the slot"+ColorConstants.RESET);
+			break;
+		default:
+			System.out.println(ColorConstants.RED +"\nBooking failed"+ColorConstants.RESET);
     }
 
     public void editProfile(String email) {
@@ -50,6 +86,9 @@ public class CustomerFlipfitMenu {
         customer.setAge(Integer.valueOf(sc.next()));
         System.out.print("Enter Address: ");
         customer.setAddress(sc.next());
+
+        customerFlipfitService.editProfile(customer);
+        
         System.out.println("Successfully edited your profile");
     }
     public void updatePassword(){
@@ -72,7 +111,21 @@ public class CustomerFlipfitMenu {
     public void cancelBooking(String email) {
         System.out.print("Enter booking ID that you want to cancel: ");
         String bookingId = sc.next();
+        customerFlipfitService.cancelBooking(bookingId, email);
     }
+    public void viewBookings(String email) {
+		List<Booking> bookings = customerFlipfitService.getBookings(email);
+		if (bookings.size() == 0) {
+			System.out.println(ColorConstants.RED + "No bookings found!" + ColorConstants.RESET);
+			return;
+		}
+		System.out.printf("%15s%15s%15s%15s%15s", "Booking Id", "Slot Id", "Gym Id", "Booking Type", "Date");
+		System.out.println();
+		bookings.forEach(booking -> {
+			System.out.printf("%15s%15s%15s%15s%15s", booking.getBookingId(), booking.getSlotId(), booking.getGymId(), booking.getType(), booking.getDate());
+			System.out.println();
+		});
+	}
 
     public void customerMenu(String email) throws ParseException {
         int choice = 0;
