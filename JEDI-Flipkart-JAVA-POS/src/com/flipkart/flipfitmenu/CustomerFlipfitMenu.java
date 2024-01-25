@@ -123,8 +123,10 @@ public class CustomerFlipfitMenu {
                     viewGyms(email);
                     break;
                 case 2:
+                	viewBookings(email);
                     break;
                 case 3:
+                	viewBookings(email);
                     cancelBooking(email);
                     break;
                 case 4:

@@ -15,6 +15,7 @@ public class CustomerFlipfitService implements CustomerFlipfitServiceInterface {
 
 	List<Customer> customers = new ArrayList<>();
 	List<Booking> bookings = new ArrayList<>();
+	List<Booking> customerBookings = new ArrayList<Booking>();
 
 	List<Slot> slots = new ArrayList<>();
 	List<Gym> gyms = new ArrayList<>();
@@ -62,6 +63,11 @@ public class CustomerFlipfitService implements CustomerFlipfitServiceInterface {
 		gyms.add(gym2);
 		gyms.add(gym3);
 		gyms.add(gym4);
+		
+		customerBookings.add(b1);
+		customerBookings.add(b2);
+		customerBookings.add(b3);
+		customerBookings.add(b4);
 	}
 
 	/**
@@ -101,13 +107,11 @@ public class CustomerFlipfitService implements CustomerFlipfitServiceInterface {
 	 */
 	public List<Booking> getBookings(String email) {
 
-		List<Booking> customerBookings = new ArrayList<Booking>();
-
-		for (Booking b : bookings) {
-			if (b.getCustomerEmail().equals(email)) {
-				customerBookings.add(b);
-			}
-		}
+//		for (Booking b : bookings) {
+//			if (b.getCustomerEmail().equals(email)) {
+//				customerBookings.add(b);
+//			}
+//		}
 		return customerBookings;
 	}
 	/**
@@ -118,9 +122,9 @@ public class CustomerFlipfitService implements CustomerFlipfitServiceInterface {
 	 */
 	public boolean cancelBooking(String bookingId, String email) {
 
-		for (Booking booking : bookings) {
+		for (Booking booking : customerBookings) {
 			if (booking.getBookingId().equals(bookingId)) {
-				bookings.remove(booking);
+				customerBookings.remove(booking);
 				System.out.println(ColorConstants.GREEN + "Successfully cancelled your booking" + ColorConstants.RESET);
 				return true;
 			}
