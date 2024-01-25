@@ -1,8 +1,10 @@
 package com.flipkart.flipfitmenu;
 
+import java.awt.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.List;
 
 import com.flipkart.bean.Booking;
 import com.flipkart.constants.*;
@@ -82,16 +84,18 @@ public class CustomerFlipfitMenu {
     	gyms.add(gym2);
     	gyms.add(gym3);
     	gyms.add(gym4);
-    	for(Gym g:gyms)
+        System.out.println(ColorConstants.ORANGE+"-------------------------------------------"+ColorConstants.RESET);
+        for(Gym g:gyms)
     	{
-    		System.out.println("Gym Name "+g.getGymName());
-    		System.out.println("Gym Address "+g.getAddress());
-    		System.out.println("Gym Owner Email "+g.getOwnerEmail());
+    		System.out.println(ColorConstants.GREEN+"Gym Name -> "+ ColorConstants.RESET +g.getGymName());
+    		System.out.println(ColorConstants.GREEN+"Gym Address -> "+ColorConstants.RESET+g.getAddress());
+    		System.out.println(ColorConstants.GREEN+"Gym Owner Email -> "+ColorConstants.RESET+g.getOwnerEmail()+ColorConstants.RESET);
+            System.out.println(ColorConstants.ORANGE+"-------------------------------------------"+ColorConstants.RESET);
     	}
     }
 
     public void cancelBooking(String email) {
-        System.out.print("Enter booking ID that you want to cancel: ");
+        System.out.print(ColorConstants.BLUE+"Enter booking ID that you want to cancel: ");
         String bookingId = sc.next();
         customerFlipfitService.cancelBooking(bookingId, email);
     }
@@ -101,19 +105,22 @@ public class CustomerFlipfitMenu {
 			System.out.println(ColorConstants.RED + "No bookings found!" + ColorConstants.RESET);
 			return;
 		}
-		System.out.printf("%15s%15s%15s%15s%15s", "Booking Id", "Slot Id", "Gym Id", "Booking Type", "Date");
-		System.out.println();
+		System.out.printf(ColorConstants.CYAN+"%15s%15s%15s%15s%15s", "Booking Id", "Slot Id", "Gym Id", "Booking Type", "Date");
+        System.out.println(ColorConstants.ORANGE+"\n---------------------------------------------------------------------------------------------"+ColorConstants.RESET);
 		bookings.forEach(booking -> {
-			System.out.printf("%15s%15s%15s%15s%15s", booking.getBookingId(), booking.getSlotId(), booking.getGymId(), booking.getType(), booking.getDate());
-			System.out.println();
-		});
+            System.out.println(ColorConstants.GREEN);
+			System.out.printf("%15s%15s%15s%15s%15s", booking.getBookingId(), booking.getSlotId(), booking.getGymId(), booking.getType()+"    ", booking.getDate());
+            System.out.println(ColorConstants.RESET);
+            System.out.println(ColorConstants.ORANGE+"---------------------------------------------------------------------------------------------"+ColorConstants.RESET);
+
+        });
 	}
 
     public void customerMenu(String email) throws ParseException {
         int choice = 0;
 
         while (choice != 5) {
-            System.out.println("Menu:-");
+            System.out.println(ColorConstants.BLUE+"Menu:-");
             System.out.println("1.View Gyms \n2.View Booked Slots \n3.Cancel Booked Slots \n4. Edit Profile \n5.Exit");
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
@@ -135,7 +142,7 @@ public class CustomerFlipfitMenu {
                 case 5:
                     break;
                 default:
-                    System.out.println("Invalid choice!");
+                    System.out.println(ColorConstants.RED+"Invalid choice!"+ColorConstants.RESET);
             }
         }
     }
