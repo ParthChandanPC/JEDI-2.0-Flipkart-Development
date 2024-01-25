@@ -2,6 +2,7 @@ package com.flipkart.flipfitmenu;
 
 import com.flipkart.bean.Gym;
 import com.flipkart.bean.GymOwner;
+import com.flipkart.flipfitservice.*;
 
 import java.util.*;
 
@@ -31,6 +32,16 @@ public class GymAdminFlipfitMenu {
             switch (choice) {
                 // Case statements
                 case 1:
+                	AdminFlipfitService admin = new AdminFlipfitService();
+                	List<Gym> gyms=admin.getGym();
+
+                	for(Gym g:gyms)
+                	{
+                		System.out.println("Gym Name "+g.getGymName());
+                		System.out.println("Gym Address "+g.getAddress());
+                		System.out.println("Gym Owner Email "+g.getOwnerEmail());
+                	}
+
                     break;
                 case 2:
                     break;
