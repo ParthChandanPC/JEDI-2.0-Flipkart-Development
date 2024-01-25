@@ -27,7 +27,6 @@ public class ApplicationFlipfitMenu {
             admin.adminMenu(in);
             return;
         }
-        userFlipFitService.authenticateUser(user);
 
         else if (roleId.equalsIgnoreCase("1")) {
 

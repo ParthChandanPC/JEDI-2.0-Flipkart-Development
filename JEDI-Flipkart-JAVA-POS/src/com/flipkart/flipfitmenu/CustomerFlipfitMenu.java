@@ -4,7 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import com.flipkart.bean.Booking
+import com.flipkart.bean.Booking;
+import com.flipkart.constants.*;
 import com.flipkart.bean.Customer;
 import com.flipkart.bean.Gym;
 import com.flipkart.bean.Slot;
@@ -42,37 +43,7 @@ public class CustomerFlipfitMenu {
     }
 
     public void viewGyms(String email) throws ParseException {
-        if (getGyms() == 0)
-			return;
-		System.out.print("Enter gym ID: ");
-		String gymId = sc.next();
-		System.out.print("\nEnter Date (yyyy-mm-dd): ");
-		String date = sc.next();
-
-        List<Slot> slots = customerBusiness.getSlotInGym(gymId);
-		
-		System.out.printf("%15s%15s%15s%15s", "Slot Id", "Start Time", "End Time", "Availability");
-		System.out.println();
-		slots.forEach(slot -> {
-			System.out.printf("%15s%15s%15s%15s", slot.getSlotId(), slot.getStartTime(), slot.getEndTime(), customerBusiness.isSlotBooked(slot.getSlotId(), date)? "WaitingList": "Available");
-		    System.out.println();
-		});
-		System.out.println("\n__________________________________________________________________________________\n");
-		System.out.print("Enter the slot ID which you want to book: ");
-		String slotId = sc.next();
-		int bookingResponse = customerBusiness.bookSlot(gymId ,slotId , email, date);
-		switch (bookingResponse) {
-		case 0:
-			System.out.println(ColorConstants.RED +"\nYou have already booked this time. \nCancelling the previous one and booking this slot"+ColorConstants.RESET);
-			break;
-		case 1:
-			System.out.println(ColorConstants.GREEN +"\nSlot is already booked, added to the waiting list"+ColorConstants.RESET);
-			break;
-		case 2:
-			System.out.println(ColorConstants.GREEN +"\nSuccessfully booked the slot"+ColorConstants.RESET);
-			break;
-		default:
-			System.out.println(ColorConstants.RED +"\nBooking failed"+ColorConstants.RESET);
+        getGyms();
     }
 
     public void editProfile(String email) {
@@ -101,11 +72,22 @@ public class CustomerFlipfitMenu {
     }
 
     public void getGyms() {
-        System.out.println("Choose your city: ");
-        System.out.println("1. Bellandur");
-        System.out.println("2. Whitefield");
-        System.out.println("3. Electronic City");
-        sc.nextInt();
+    	List<Gym> gyms=new ArrayList<Gym>();
+
+    	Gym gym1 = new Gym("g1", "gym1", "gymowner1@gmail.com", "Kanpur", 2, 5, true);
+    	Gym gym2 = new Gym("g2", "gym2", "gymowner2@gmail.com", "Hyderabad", 3, 5, true);
+    	Gym gym3 = new Gym("g3", "gym3", "gymowner3@gmail.com", "Bangalore", 2, 3, true);
+    	Gym gym4 = new Gym("g4", "gym4", "gymowner4@gmail.com", "Cochin", 6, 5, true);
+    	gyms.add(gym1);
+    	gyms.add(gym2);
+    	gyms.add(gym3);
+    	gyms.add(gym4);
+    	for(Gym g:gyms)
+    	{
+    		System.out.println("Gym Name "+g.getGymName());
+    		System.out.println("Gym Address "+g.getAddress());
+    		System.out.println("Gym Owner Email "+g.getOwnerEmail());
+    	}
     }
 
     public void cancelBooking(String email) {
