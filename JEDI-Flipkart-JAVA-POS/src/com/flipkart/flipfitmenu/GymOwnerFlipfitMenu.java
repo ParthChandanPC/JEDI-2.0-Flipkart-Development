@@ -1,5 +1,6 @@
 package com.flipkart.flipfitmenu;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,7 +12,7 @@ import com.flipkart.utils.IdGenerator;
 public class GymOwnerFlipfitMenu {
 
     GymOwner gymOwner = new GymOwner();
-
+    Gym gym = new Gym();
     public void gymOwnerRegistration(Scanner in) {
         System.out.println("\nEnter GymOwner Details: \n");
         System.out.print("Enter Email: ");
@@ -57,6 +58,17 @@ public class GymOwnerFlipfitMenu {
         System.out.printf("%15s%15s%15s%15s", gymOwner.getName(), gymOwner.getPhoneNumber(), gymOwner.getPanNumber(),
                 gymOwner.getAadharNumber());
         System.out.println("\n______________________________________________________________");
+    }
+    public void getGym(){
+        System.out.println("______________________________________________________________");
+        System.out.printf("%15s%15s%15s", "Location", "Slots", "Seats");
+        System.out.println();
+        System.out.printf("%15s%15s%15s", gym.getAddress(), gym.getSlotCount(), gym.getSeatsPerSlotCount());
+        System.out.println("\n______________________________________________________________");
+    }
+
+    public void viewGym(String email){
+        getGym();
     }
 
     public void addGym(Scanner in, String email) {
@@ -113,16 +125,17 @@ public class GymOwnerFlipfitMenu {
     }
 
     public void gymOwnerMenu(Scanner in, String email) {
-        boolean recur = true;
-        while (recur) {
+        boolean flag = true;
+        while (flag) {
             System.out.println("\nHere are the actions you can perform!");
 
             System.out.println("1. View Profile");
             System.out.println("2. Edit Profile");
-            System.out.println("3. Add Gym");
-            System.out.println("4. Edit Gym");
-            System.out.println("5. Add Slot");
-            System.out.println("6. LogOut\n");
+            System.out.println("3. View Gyms");
+            System.out.println("4. Add Gym");
+            System.out.println("5. Edit Gym");
+            System.out.println("6. Add Slot");
+            System.out.println("7. LogOut\n");
 
             System.out.print("Enter Your Choice: " );
             int choice = in.nextInt();
@@ -137,21 +150,24 @@ public class GymOwnerFlipfitMenu {
                     editProfile(in, email);
                     break;
                 case 3:
-                    addGym(in, email);
+                    viewGym(email);
                     break;
                 case 4:
-                    editGym(in, email);
+                    addGym(in, email);
                     break;
                 case 5:
-                    addSlot(in);
+                    editGym(in, email);
                     break;
                 case 6:
-                    recur = false;
+                    addSlot(in);
+                    break;
+                case 7:
+                    flag = false;
                     break;
                 default:
                     System.out.println("Invalid Choice!");
             }
-            if (!recur) {
+            if (!flag) {
                 gymOwner = new GymOwner();
                     System.out.println("Logged Out Successfully!");
             }
