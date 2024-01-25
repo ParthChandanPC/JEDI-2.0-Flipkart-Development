@@ -20,10 +20,10 @@ public class CustomerFlipfitService implements CustomerFlipfitServiceInterface {
 	List<Gym> gyms = new ArrayList<>();
 
 	Date d1 = new Date();
-	Customer customer1 = new Customer("c1@gmail.com", "c1", "Customer", "Vaishnavi", "0000", 22, "Kanpur");
-	Customer customer2 = new Customer("c2@gmail.com", "c2", "Customer", "Anjali", "0000", 32, "Vadodara");
-	Customer customer3 = new Customer("c3@gmail.com", "c3", "Customer", "Sudha", "0000", 42, "Kolkata");
-	Customer customer4 = new Customer("c4@gmail.com", "c4", "Customer", "Aaishu", "0000", 52, "Mumbai");
+	Customer customer1 = new Customer("c1@gmail.com", "c1", "Customer", "Latika", "0000", 22, "Kanpur");
+	Customer customer2 = new Customer("c2@gmail.com", "c2", "Customer", "Akanksha", "0000", 32, "Vadodara");
+	Customer customer3 = new Customer("c3@gmail.com", "c3", "Customer", "Abhishek", "0000", 42, "Kolkata");
+	Customer customer4 = new Customer("c4@gmail.com", "c4", "Customer", "Parth", "0000", 52, "Mumbai");
 
 
 	Booking b1 = new Booking("123", "121", "171", "confirmed", d1, "c1@gmail.com", "John");
