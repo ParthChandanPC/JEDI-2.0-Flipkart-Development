@@ -20,12 +20,14 @@ public class ApplicationFlipfitMenu {
         System.out.println("1 --> Gym Customer\n2-->Gym Owner\n3 --> Admin");
         String roleId = in.next();
         User user = new User(userEmail, password, roleId);
-        UserFlipfitService userBusiness = new UserFlipfitService();
+        UserFlipfitService userFlipFitService = new UserFlipfitService();
 
         if (roleId.equalsIgnoreCase("3")) {
             GymAdminFlipfitMenu admin = new GymAdminFlipfitMenu();
             admin.adminMenu(in);
+            return;
         }
+        userFlipFitService.authenticateUser(user);
 
         else if (roleId.equalsIgnoreCase("1")) {
 
