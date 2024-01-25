@@ -44,6 +44,18 @@ public class GymAdminFlipfitMenu {
 
                     break;
                 case 2:
+                    AdminFlipfitService admin2 = new AdminFlipfitService();
+                    List<GymOwner> gymOwners = admin2.getGymOwners();
+
+                    for (GymOwner owner : gymOwners) {
+                        System.out.println("Owner Name: " + owner.getName());
+                        System.out.println("Owner Email: " + owner.getEmail());
+                        System.out.println("Owner Phone Number: " + owner.getPhoneNumber());
+                        // Add more fields as needed
+
+                        System.out.println("------------");
+                    }
+
                     break;
                 case 3:
                     break;

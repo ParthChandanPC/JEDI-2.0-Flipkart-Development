@@ -11,8 +11,24 @@ import java.util.List;
 public class AdminDaoImpl implements AdminDao {
     public List<GymOwner> getAllGymOwners()
     {
-        List<GymOwner> gymOwners = new ArrayList<GymOwner>();
-        System.out.println("A\n" +"B\n"+ "C\n");
+        List<GymOwner> gymOwners = new ArrayList<>();
+
+        // Sample data for gym owners
+        GymOwner owner1 = new GymOwner("john.doe@gmail.com", "password1", "1", "John Doe", "1234567890", "A123456789", "PAN123456");
+        GymOwner owner2 = new GymOwner("jane.smith@gmail.com", "password2", "2", "Jane Smith", "9876543210", "A987654321", "PAN987654");
+        GymOwner owner3 = new GymOwner("bob.johnson@gmail.com", "password3", "3", "Bob Johnson", "5555555555", "A555555555", "PAN555555");
+
+        gymOwners.add(owner1);
+        gymOwners.add(owner2);
+        gymOwners.add(owner3);
+
+        // Printing details for testing purposes
+        for (GymOwner owner : gymOwners) {
+            System.out.println("Owner Name: " + owner.getName());
+            System.out.println("Owner Email: " + owner.getEmail());
+            System.out.println("------------");
+        }
+
         return gymOwners;
     }
 
@@ -33,6 +49,7 @@ public class AdminDaoImpl implements AdminDao {
     		System.out.println("Gym Name "+g.getGymName());
     		System.out.println("Gym Address "+g.getAddress());
     		System.out.println("Gym Owner Email "+g.getOwnerEmail());
+            System.out.println();
     	}
         return gyms;
     }
